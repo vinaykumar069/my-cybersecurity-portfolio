@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>G Venkata Vinay Kumar | Offensive Security Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <!-- Fonts (optional, needs internet) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="particle-canvas"></canvas>
+  <!-- Primary fullscreen loader -->
+  <div id="loader">
+    <div class="loader-logo loader-glitch">
+      <div class="loader-hood">
+        <div class="loader-face">VK</div>
+        <div class="loader-scan"></div>
+        <div class="loader-laptop"></div>
+      </div>
+    </div>
+    <div class="loader-text">
+      <span>&gt; initializing secure session</span>
+      <div class="loader-dot"></div>
+    </div>
+    <div class="loader-sub">offensive security workspace booting…</div>
+  </div>
+
+  <!-- Secondary console -->
+  <div id="status-console">
+    <div class="status-header">
+      <span>system status</span>
+      <div class="status-led"></div>
+    </div>
+    <div id="status-binary" class="status-binary"></div>
+    <div id="status-text" class="status-text"></div>
+  </div>
+
+  <div class="app" id="app">
+    <header>
+      <nav class="nav">
+        <div class="nav-left">
+          <img src="THM.jpeg" alt="G Venkata Vinay Kumar" class="nav-logo" style="object-fit: cover;">
+          <button class="nav-brand-btn">
+            <span>vinay.offsec</span>
+          </button>
+        </div>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#certs">Certs</a>
+          <a href="#contact" data-status="contact">Contact</a>
+          <a href="#" id="terminal-link">Terminal</a>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Hero (Replaced with Video Hero) -->
+    <section id="hero" class="hero-video-section">
+      <!-- Video background -->
+      <video
+        autoplay
+        muted
+        loop
+        playsinline
+        class="hero-video-bg"
+      >
+        <source src="hero-bg.mp4" type="video/mp4" />
+      </video>
+
+      <!-- Dark overlay -->
+      <div class="hero-video-overlay"></div>
+
+      <!-- Content -->
+      <div class="hero-video-content">
+        <div class="hero-video-inner">
+          <h1 class="hero-video-heading" style="color: white">
+            Vinay Kumar
+          </h1>
+          <p class="hero-video-sub" style="animation-delay: 0.35s">
+            Ethical Hacker
+          </p>
+
+          <div class="hero-video-actions" style="animation-delay: 0.65s">
+            <a
+              href="#contact"
+              class="btn btn-primary"
+              style="padding: 0.75rem 1.5rem; font-size: 1rem;"
+            >
+              Get in Touch
+            </a>
+            <a
+              href="#projects"
+              class="btn btn-ghost"
+              style="padding: 0.75rem 1.5rem; font-size: 1rem; border-color: rgba(255,255,255,0.25); color: white;"
+            >
+              View Projects
+            </a>
+          </div>
+
+          <!-- TryHackMe Badge -->
+          <div class="hero-video-badge" style="animation-delay: 0.95s">
+             <iframe src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=4799202"></iframe>
+          </div>
+        </div>
+      </div>
+
+      <a
+        href="#about"
+        class="scroll-down-arrow"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="m6 9 6 6 6-6"/></svg>
+      </a>
+    </section>
+
+    <main>
+      <!-- About (HUD trace) -->
+      <section id="about" class="reveal" data-section-id="about">
+        <h2 class="section-title">
+          About
+          <span>who I am</span>
+        </h2>
+        <div class="grid-2">
+          <div class="card hud-card">
+            <h3 class="card-title">ECE &amp; security together</h3>
+            <p>
+              I'm an undergraduate Electronics and Communication Engineering student interested in how systems behave under real-world attacks. I like viewing networks, protocols, and devices from an attacker’s perspective and then mapping that back to how they’re designed.
+            </p>
+            <br />
+            <p>
+              My focus is on the offensive side of cybersecurity — exploring tools, techniques, and workflows that reveal where systems fail, and what it takes to secure them.
+            </p>
+          </div>
+          <div class="card hud-card">
+            <h3 class="card-title">Beyond the terminal</h3>
+            <p>
+              I enjoy designing clean and structured presentations, especially when explaining technical topics. I also like cooking; it gives me a way to disconnect briefly, reset, and come back with a clearer mind.
+            </p>
+            <br />
+            <p>
+              I'm still early in my journey, but I'm patient, curious, and willing to put in the work to improve, one lab and one project at a time.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills (side reveal) -->
+      <section id="skills" class="reveal" data-section-id="skills">
+        <h2 class="section-title">
+          Skills
+          <span>what I work with</span>
+        </h2>
+        <div class="grid-2">
+          <div class="card hud-card">
+            <h3 class="card-title">Offensive Security</h3>
+            <p style="color: var(--text-muted); line-height: 1.8;">
+              Web App Testing • Network Pentesting • Enumeration • Privilege Escalation • OSINT
+            </p>
+            
+            <h3 class="card-title" style="margin-top: 1.5rem;">Security Tools</h3>
+            <p style="color: var(--text-muted); line-height: 1.8;">
+              Nmap • Burp Suite • Metasploit • Wireshark • Hydra • Bettercap • Gobuster • John
+            </p>
+
+            <h3 class="card-title" style="margin-top: 1.5rem;">Systems</h3>
+            <p style="color: var(--text-muted); line-height: 1.8;">
+              Kali Linux • Linux Internals • Windows Basics • Bash
+            </p>
+          </div>
+          <div class="card hud-card">
+            <h3 class="card-title">Networking & Analysis</h3>
+            <p style="color: var(--text-muted); line-height: 1.8;">
+              TCP/IP • DNS • SMTP • SNMP • LDAP • NetBIOS • ICMP • Packet Analysis • Log Analysis
+            </p>
+            
+            <h3 class="card-title" style="margin-top: 1.5rem;">Programming</h3>
+            <p style="color: var(--text-muted); line-height: 1.8;">
+              Python • C • C++
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects (HUD trace) -->
+      <section id="projects" class="reveal" data-section-id="projects">
+        <h2 class="section-title">
+          Projects
+          <span>things I'm building &amp; breaking</span>
+        </h2>
+        <div class="grid-2">
+          <div class="card hud-card">
+            <h3 class="card-title">Email Verification System</h3>
+            <p class="card-sub">Tools: Python</p>
+            <p>
+              Built a Python-based email validation tool using regular expressions to perform automated syntax verification and compliance checks.
+            </p>
+          </div>
+          <div class="card hud-card">
+            <h3 class="card-title">Wi-Fi Security Analysis Lab</h3>
+            <p class="card-sub">Tools: Aircrack-ng, Bettercap, Wireshark</p>
+            <p>
+              Designed a controlled lab environment to analyze WPA2/WPA3 security mechanisms. Conducted authorized testing and documented identified weaknesses and mitigations.
+            </p>
+          </div>
+          <div class="card hud-card">
+            <h3 class="card-title">StegoChats – Steganography Integration in normal Chat Application</h3>
+            <p>
+              Developed a steganography module for covert message embedding. Evaluated detection risks and analyzed security limitations of hidden communication techniques.
+            </p>
+          </div>
+          <div class="card hud-card">
+            <h3 class="card-title">Recon Automation Script (Bash)</h3>
+            <p class="card-sub">Tools: Bash, Nmap, Gobuster</p>
+            <p>
+              Built a Bash-based automation script to streamline reconnaissance workflow — integrating port scanning, directory enumeration, and result aggregation into structured output files.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Certifications (side reveal) -->
+      <section id="certs" class="reveal" data-section-id="certs">
+        <h2 class="section-title">
+          Certifications
+          <span>structured learning</span>
+        </h2>
+        <div class="grid-2">
+          <div class="card hud-card">
+            <h3 class="card-title">NPTEL – Ethical Hacking</h3>
+            <p class="card-sub">NPTEL</p>
+            <a href="https://drive.google.com/file/d/1BNw_ZkYucFxh7zTdMG6ZiUIWTaEpV5Ff/view?usp=drive_link" class="cert-btn" target="_blank">
+              <div class="outline"></div>
+              <div class="state state--default">
+                <div class="icon">
+                  <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14.2199 21.63C13.0399 21.63 11.3699 20.8 10.0499 16.83L9.32988 14.67L7.16988 13.95C3.20988 12.63 2.37988 10.96 2.37988 9.78001C2.37988 8.61001 3.20988 6.93001 7.16988 5.60001L15.6599 2.77001C17.7799 2.06001 19.5499 2.27001 20.6399 3.35001C21.7299 4.43001 21.9399 6.21001 21.2299 8.33001L18.3999 16.82C17.0699 20.8 15.3999 21.63 14.2199 21.63ZM7.63988 7.03001C4.85988 7.96001 3.86988 9.06001 3.86988 9.78001C3.86988 10.5 4.85988 11.6 7.63988 12.52L10.1599 13.36C10.3799 13.43 10.5599 13.61 10.6299 13.83L11.4699 16.35C12.3899 19.13 13.4999 20.12 14.2199 20.12C14.9399 20.12 16.0399 19.13 16.9699 16.35L19.7999 7.86001C20.3099 6.32001 20.2199 5.06001 19.5699 4.41001C18.9199 3.76001 17.6599 3.68001 16.1299 4.19001L7.63988 7.03001Z" fill="currentColor"></path><path d="M10.11 14.4C9.92005 14.4 9.73005 14.33 9.58005 14.18C9.29005 13.89 9.29005 13.41 9.58005 13.12L13.16 9.53C13.45 9.24 13.93 9.24 14.22 9.53C14.51 9.82 14.51 10.3 14.22 10.59L10.64 14.18C10.5 14.33 10.3 14.4 10.11 14.4Z" fill="currentColor"></path></svg>
+                </div>
+                <p>
+                  <span style="--i:0">V</span><span style="--i:1">i</span><span style="--i:2">e</span><span style="--i:3">w</span>
+                  <span style="--i:4">C</span><span style="--i:5">e</span><span style="--i:6">r</span><span style="--i:7">t</span><span style="--i:8">i</span><span style="--i:9">f</span><span style="--i:10">i</span><span style="--i:11">c</span><span style="--i:12">a</span><span style="--i:13">t</span><span style="--i:14">e</span>
+                </p>
+              </div>
+              <div class="state state--sent">
+                <p>
+                  <span style="--i:0">O</span><span style="--i:1">p</span><span style="--i:2">e</span><span style="--i:3">n</span><span style="--i:4">i</span><span style="--i:5">n</span><span style="--i:6">g</span>
+                </p>
+              </div>
+            </a>
+          </div>
+          <div class="card hud-card">
+            <h3 class="card-title">LinkedIn Learning – Ethical Hacking</h3>
+            <p class="card-sub">LinkedIn</p>
+            <a href="https://www.linkedin.com/learning/certificates/ff0f8411eee5d95af445aacc22a70c75aed8e1a7bc962a009f5006c499bbdc51" class="cert-btn" target="_blank">
+              <div class="outline"></div>
+              <div class="state state--default">
+                <div class="icon">
+                  <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14.2199 21.63C13.0399 21.63 11.3699 20.8 10.0499 16.83L9.32988 14.67L7.16988 13.95C3.20988 12.63 2.37988 10.96 2.37988 9.78001C2.37988 8.61001 3.20988 6.93001 7.16988 5.60001L15.6599 2.77001C17.7799 2.06001 19.5499 2.27001 20.6399 3.35001C21.7299 4.43001 21.9399 6.21001 21.2299 8.33001L18.3999 16.82C17.0699 20.8 15.3999 21.63 14.2199 21.63ZM7.63988 7.03001C4.85988 7.96001 3.86988 9.06001 3.86988 9.78001C3.86988 10.5 4.85988 11.6 7.63988 12.52L10.1599 13.36C10.3799 13.43 10.5599 13.61 10.6299 13.83L11.4699 16.35C12.3899 19.13 13.4999 20.12 14.2199 20.12C14.9399 20.12 16.0399 19.13 16.9699 16.35L19.7999 7.86001C20.3099 6.32001 20.2199 5.06001 19.5699 4.41001C18.9199 3.76001 17.6599 3.68001 16.1299 4.19001L7.63988 7.03001Z" fill="currentColor"></path><path d="M10.11 14.4C9.92005 14.4 9.73005 14.33 9.58005 14.18C9.29005 13.89 9.29005 13.41 9.58005 13.12L13.16 9.53C13.45 9.24 13.93 9.24 14.22 9.53C14.51 9.82 14.51 10.3 14.22 10.59L10.64 14.18C10.5 14.33 10.3 14.4 10.11 14.4Z" fill="currentColor"></path></svg>
+                </div>
+                <p>
+                  <span style="--i:0">V</span><span style="--i:1">i</span><span style="--i:2">e</span><span style="--i:3">w</span>
+                  <span style="--i:4">C</span><span style="--i:5">e</span><span style="--i:6">r</span><span style="--i:7">t</span><span style="--i:8">i</span><span style="--i:9">f</span><span style="--i:10">i</span><span style="--i:11">c</span><span style="--i:12">a</span><span style="--i:13">t</span><span style="--i:14">e</span>
+                </p>
+              </div>
+              <div class="state state--sent">
+                <p>
+                  <span style="--i:0">O</span><span style="--i:1">p</span><span style="--i:2">e</span><span style="--i:3">n</span><span style="--i:4">i</span><span style="--i:5">n</span><span style="--i:6">g</span>
+                </p>
+              </div>
+            </a>
+          </div>
+          <div class="card hud-card">
+            <h3 class="card-title">Python certification</h3>
+            <p class="card-sub">Elewayte</p>
+            <a href="https://drive.google.com/file/d/1lzGNXPfpjsVwSK5-37PM7Btk7kG62YKY/view?usp=drive_link" class="cert-btn" target="_blank">
+              <div class="outline"></div>
+              <div class="state state--default">
+                <div class="icon">
+                  <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14.2199 21.63C13.0399 21.63 11.3699 20.8 10.0499 16.83L9.32988 14.67L7.16988 13.95C3.20988 12.63 2.37988 10.96 2.37988 9.78001C2.37988 8.61001 3.20988 6.93001 7.16988 5.60001L15.6599 2.77001C17.7799 2.06001 19.5499 2.27001 20.6399 3.35001C21.7299 4.43001 21.9399 6.21001 21.2299 8.33001L18.3999 16.82C17.0699 20.8 15.3999 21.63 14.2199 21.63ZM7.63988 7.03001C4.85988 7.96001 3.86988 9.06001 3.86988 9.78001C3.86988 10.5 4.85988 11.6 7.63988 12.52L10.1599 13.36C10.3799 13.43 10.5599 13.61 10.6299 13.83L11.4699 16.35C12.3899 19.13 13.4999 20.12 14.2199 20.12C14.9399 20.12 16.0399 19.13 16.9699 16.35L19.7999 7.86001C20.3099 6.32001 20.2199 5.06001 19.5699 4.41001C18.9199 3.76001 17.6599 3.68001 16.1299 4.19001L7.63988 7.03001Z" fill="currentColor"></path><path d="M10.11 14.4C9.92005 14.4 9.73005 14.33 9.58005 14.18C9.29005 13.89 9.29005 13.41 9.58005 13.12L13.16 9.53C13.45 9.24 13.93 9.24 14.22 9.53C14.51 9.82 14.51 10.3 14.22 10.59L10.64 14.18C10.5 14.33 10.3 14.4 10.11 14.4Z" fill="currentColor"></path></svg>
+                </div>
+                <p>
+                  <span style="--i:0">V</span><span style="--i:1">i</span><span style="--i:2">e</span><span style="--i:3">w</span>
+                  <span style="--i:4">C</span><span style="--i:5">e</span><span style="--i:6">r</span><span style="--i:7">t</span><span style="--i:8">i</span><span style="--i:9">f</span><span style="--i:10">i</span><span style="--i:11">c</span><span style="--i:12">a</span><span style="--i:13">t</span><span style="--i:14">e</span>
+                </p>
+              </div>
+              <div class="state state--sent">
+                <p>
+                  <span style="--i:0">O</span><span style="--i:1">p</span><span style="--i:2">e</span><span style="--i:3">n</span><span style="--i:4">i</span><span style="--i:5">n</span><span style="--i:6">g</span>
+                </p>
+              </div>
+            </a>
+          </div>
+          <div class="card hud-card">
+            <h3 class="card-title">Deloitte Cyber Job Simulation</h3>
+            <p class="card-sub">Deloitte</p>
+            <a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/9PBTqmSxAf6zZTseP/E9pA6qsdbeyEkp3ti_9PBTqmSxAf6zZTseP_JpncXTiaSECKGpsQf_1751897897291_completion_certificate.pdf" class="cert-btn" target="_blank">
+              <div class="outline"></div>
+              <div class="state state--default">
+                <div class="icon">
+                  <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14.2199 21.63C13.0399 21.63 11.3699 20.8 10.0499 16.83L9.32988 14.67L7.16988 13.95C3.20988 12.63 2.37988 10.96 2.37988 9.78001C2.37988 8.61001 3.20988 6.93001 7.16988 5.60001L15.6599 2.77001C17.7799 2.06001 19.5499 2.27001 20.6399 3.35001C21.7299 4.43001 21.9399 6.21001 21.2299 8.33001L18.3999 16.82C17.0699 20.8 15.3999 21.63 14.2199 21.63ZM7.63988 7.03001C4.85988 7.96001 3.86988 9.06001 3.86988 9.78001C3.86988 10.5 4.85988 11.6 7.63988 12.52L10.1599 13.36C10.3799 13.43 10.5599 13.61 10.6299 13.83L11.4699 16.35C12.3899 19.13 13.4999 20.12 14.2199 20.12C14.9399 20.12 16.0399 19.13 16.9699 16.35L19.7999 7.86001C20.3099 6.32001 20.2199 5.06001 19.5699 4.41001C18.9199 3.76001 17.6599 3.68001 16.1299 4.19001L7.63988 7.03001Z" fill="currentColor"></path><path d="M10.11 14.4C9.92005 14.4 9.73005 14.33 9.58005 14.18C9.29005 13.89 9.29005 13.41 9.58005 13.12L13.16 9.53C13.45 9.24 13.93 9.24 14.22 9.53C14.51 9.82 14.51 10.3 14.22 10.59L10.64 14.18C10.5 14.33 10.3 14.4 10.11 14.4Z" fill="currentColor"></path></svg>
+                </div>
+                <p>
+                  <span style="--i:0">V</span><span style="--i:1">i</span><span style="--i:2">e</span><span style="--i:3">w</span>
+                  <span style="--i:4">C</span><span style="--i:5">e</span><span style="--i:6">r</span><span style="--i:7">t</span><span style="--i:8">i</span><span style="--i:9">f</span><span style="--i:10">i</span><span style="--i:11">c</span><span style="--i:12">a</span><span style="--i:13">t</span><span style="--i:14">e</span>
+                </p>
+              </div>
+              <div class="state state--sent">
+                <p>
+                  <span style="--i:0">O</span><span style="--i:1">p</span><span style="--i:2">e</span><span style="--i:3">n</span><span style="--i:4">i</span><span style="--i:5">n</span><span style="--i:6">g</span>
+                </p>
+              </div>
+            </a>
+          </div>
+          <div class="card hud-card">
+            <h3 class="card-title">Gemini Certified Student</h3>
+            <p class="card-sub">Google</p>
+            <a href="https://edu.google.accredible.com/08424be2-6e52-4f3f-8944-0f6aa3738366#acc.vF9uWl50" class="cert-btn" target="_blank">
+              <div class="outline"></div>
+              <div class="state state--default">
+                <div class="icon">
+                  <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14.2199 21.63C13.0399 21.63 11.3699 20.8 10.0499 16.83L9.32988 14.67L7.16988 13.95C3.20988 12.63 2.37988 10.96 2.37988 9.78001C2.37988 8.61001 3.20988 6.93001 7.16988 5.60001L15.6599 2.77001C17.7799 2.06001 19.5499 2.27001 20.6399 3.35001C21.7299 4.43001 21.9399 6.21001 21.2299 8.33001L18.3999 16.82C17.0699 20.8 15.3999 21.63 14.2199 21.63ZM7.63988 7.03001C4.85988 7.96001 3.86988 9.06001 3.86988 9.78001C3.86988 10.5 4.85988 11.6 7.63988 12.52L10.1599 13.36C10.3799 13.43 10.5599 13.61 10.6299 13.83L11.4699 16.35C12.3899 19.13 13.4999 20.12 14.2199 20.12C14.9399 20.12 16.0399 19.13 16.9699 16.35L19.7999 7.86001C20.3099 6.32001 20.2199 5.06001 19.5699 4.41001C18.9199 3.76001 17.6599 3.68001 16.1299 4.19001L7.63988 7.03001Z" fill="currentColor"></path><path d="M10.11 14.4C9.92005 14.4 9.73005 14.33 9.58005 14.18C9.29005 13.89 9.29005 13.41 9.58005 13.12L13.16 9.53C13.45 9.24 13.93 9.24 14.22 9.53C14.51 9.82 14.51 10.3 14.22 10.59L10.64 14.18C10.5 14.33 10.3 14.4 10.11 14.4Z" fill="currentColor"></path></svg>
+                </div>
+                <p>
+                  <span style="--i:0">V</span><span style="--i:1">i</span><span style="--i:2">e</span><span style="--i:3">w</span>
+                  <span style="--i:4">C</span><span style="--i:5">e</span><span style="--i:6">r</span><span style="--i:7">t</span><span style="--i:8">i</span><span style="--i:9">f</span><span style="--i:10">i</span><span style="--i:11">c</span><span style="--i:12">a</span><span style="--i:13">t</span><span style="--i:14">e</span>
+                </p>
+              </div>
+              <div class="state state--sent">
+                <p>
+                  <span style="--i:0">O</span><span style="--i:1">p</span><span style="--i:2">e</span><span style="--i:3">n</span><span style="--i:4">i</span><span style="--i:5">n</span><span style="--i:6">g</span>
+                </p>
+              </div>
+            </a>
+          </div>
+          <div class="card hud-card">
+            <h3 class="card-title">Advent of Cyber - 2025</h3>
+            <p class="card-sub">TryHackMe</p>
+            <a href="https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-K9FLTFWQD4.pdf" class="cert-btn" target="_blank">
+              <div class="outline"></div>
+              <div class="state state--default">
+                <div class="icon">
+                  <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14.2199 21.63C13.0399 21.63 11.3699 20.8 10.0499 16.83L9.32988 14.67L7.16988 13.95C3.20988 12.63 2.37988 10.96 2.37988 9.78001C2.37988 8.61001 3.20988 6.93001 7.16988 5.60001L15.6599 2.77001C17.7799 2.06001 19.5499 2.27001 20.6399 3.35001C21.7299 4.43001 21.9399 6.21001 21.2299 8.33001L18.3999 16.82C17.0699 20.8 15.3999 21.63 14.2199 21.63ZM7.63988 7.03001C4.85988 7.96001 3.86988 9.06001 3.86988 9.78001C3.86988 10.5 4.85988 11.6 7.63988 12.52L10.1599 13.36C10.3799 13.43 10.5599 13.61 10.6299 13.83L11.4699 16.35C12.3899 19.13 13.4999 20.12 14.2199 20.12C14.9399 20.12 16.0399 19.13 16.9699 16.35L19.7999 7.86001C20.3099 6.32001 20.2199 5.06001 19.5699 4.41001C18.9199 3.76001 17.6599 3.68001 16.1299 4.19001L7.63988 7.03001Z" fill="currentColor"></path><path d="M10.11 14.4C9.92005 14.4 9.73005 14.33 9.58005 14.18C9.29005 13.89 9.29005 13.41 9.58005 13.12L13.16 9.53C13.45 9.24 13.93 9.24 14.22 9.53C14.51 9.82 14.51 10.3 14.22 10.59L10.64 14.18C10.5 14.33 10.3 14.4 10.11 14.4Z" fill="currentColor"></path></svg>
+                </div>
+                <p>
+                  <span style="--i:0">V</span><span style="--i:1">i</span><span style="--i:2">e</span><span style="--i:3">w</span>
+                  <span style="--i:4">C</span><span style="--i:5">e</span><span style="--i:6">r</span><span style="--i:7">t</span><span style="--i:8">i</span><span style="--i:9">f</span><span style="--i:10">i</span><span style="--i:11">c</span><span style="--i:12">a</span><span style="--i:13">t</span><span style="--i:14">e</span>
+                </p>
+              </div>
+              <div class="state state--sent">
+                <p>
+                  <span style="--i:0">O</span><span style="--i:1">p</span><span style="--i:2">e</span><span style="--i:3">n</span><span style="--i:4">i</span><span style="--i:5">n</span><span style="--i:6">g</span>
+                </p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Education & Experience (HUD trace) -->
+      <section id="education" class="reveal" data-section-id="education">
+        <h2 class="section-title">
+          Education
+          <span>where I'm studying</span>
+        </h2>
+        <div class="grid-2">
+          <div class="card hud-card">
+            <h3 class="card-title">B.Tech – Electronics and Communication Engineering</h3>
+            <p class="card-sub">RGUKT Srikakulam</p>
+            <p>
+              Pursuing my degree while actively building a foundation in networks, systems, and cybersecurity concepts, and connecting theory with hands-on security labs.
+            </p>
+          </div>
+          <div class="card hud-card">
+            <h3 class="card-title">Experience</h3>
+            <p>
+              I'm still early in my professional journey and focusing mainly on learning, labs, and building a solid base. This space will grow with internships, projects, and security-focused work as I gain more experience.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Hobbies (side reveal) -->
+      <section id="hobbies" class="reveal" data-section-id="hobbies">
+        <h2 class="section-title">
+          Hobbies
+          <span>outside security</span>
+        </h2>
+        <div class="grid-2">
+          <div class="card reveal-left">
+            <h3 class="card-title">Cooking</h3>
+            <p>
+              I like simple cooking — it's a way to slow down, reset, and come back to technical work with a clearer head.
+            </p>
+          </div>
+          <div class="card reveal-right">
+            <h3 class="card-title">Designing slides</h3>
+            <p>
+              I enjoy building clean presentation slides, especially when explaining technical topics or summarizing what I’ve been learning.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact (side reveal) -->
+      <section id="contact" class="reveal" data-section-id="contact">
+        <h2 class="section-title">
+          Contact
+          <span>let's talk</span>
+        </h2>
+        <div class="contact-grid">
+          <div class="reveal-left" style="display: flex; align-items: center; justify-content: center;">
+            <div class="social-card">
+              <div class="social-bg"></div>
+              <div class="social-logo">
+                <!-- Network/Connect Icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="40" height="40">
+                  <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/>
+                </svg>
+              </div>
+              
+              <!-- Box 1: Email (Largest) -->
+              <a href="mailto:urstrulyvinay6@gmail.com" class="social-box social-box1">
+                <span class="social-icon">
+                  <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg" class="svg">
+                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                  </svg>
+                </span>
+              </a>
+
+              <!-- Box 2: LinkedIn -->
+              <a href="https://www.linkedin.com/in/gvvk" target="_blank" class="social-box social-box2">
+                <span class="social-icon">
+                  <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg" class="svg">
+                    <path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h5v-8.321c0-4.608 5.472-4.474 5.472 0v8.321h5v-9.513c0-7.564-8.096-7.348-10.504-3.565v-2.923z"/>
+                  </svg>
+                </span>
+              </a>
+
+              <!-- Box 3: GitHub -->
+              <a href="https://www.github.com/vinaykumar069" target="_blank" class="social-box social-box3">
+                <span class="social-icon">
+                  <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg" class="svg">
+                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                  </svg>
+                </span>
+              </a>
+
+              <!-- Box 4: Decoration -->
+              <div class="social-box social-box4"></div>
+            </div>
+          </div>
+          <div class="card reveal-right">
+            <h3 class="card-title">Quick message</h3>
+            <!-- TODO: Replace the action attribute below with your own Formspree form ID. -->
+            <form class="contact-form" id="contact-form" action="https://formspree.io/f/your_form_id" method="POST">
+              <div class="field">
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" placeholder="Your name" required />
+              </div>
+              <div class="field">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" placeholder="you@example.com" required />
+              </div>
+              <div class="field">
+                <label for="msg">Message</label>
+                <textarea id="msg" name="message" placeholder="What would you like to talk about?" required></textarea>
+              </div>
+              <button class="btn btn-primary" type="submit">Send message</button>
+              <div id="form-notification"></div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <div>© <span id="year"></span> G Venkata Vinay Kumar. All rights reserved.</div>
+        <div class="footer-links">
+          <a href="#hero">Back to top</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <div id="terminal" class="terminal hidden">
+    <div class="terminal-header">
+      <div class="terminal-title">guest@vinay.offsec: ~</div>
+      <div class="terminal-controls">
+        <button class="terminal-control" id="terminal-close">×</button>
+      </div>
+    </div>
+    <div class="terminal-body" id="terminal-body">
+      <div id="terminal-output"></div>
+      <div class="terminal-input-line">
+        <span class="terminal-prompt">&gt;</span>
+        <input type="text" id="terminal-input" class="terminal-input" autofocus />
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" integrity="sha512-dLxUelApnYxpLt6K2iomGngnHO83iUasbVRjS5x1ebIV54qrNwG+94vY3fN5/if3edQ/LwP9QZYiN3u/x3gCBA==" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+  <script src="particles.js" defer></script>
+  <script src="script.js" defer></script>
+  <script src="terminal.js" defer></script>
+</body>
+</html>

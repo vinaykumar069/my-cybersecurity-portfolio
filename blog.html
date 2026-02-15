@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Blog | G Venkata Vinay Kumar</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <!-- Fonts (optional, needs internet) -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .blog-post {
+      margin-bottom: 4rem;
+    }
+    .blog-post-title {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .blog-post-meta {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+    .blog-post-content {
+      line-height: 1.8;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="particle-canvas"></canvas>
+  <div class="app visible">
+    <header>
+      <nav class="nav">
+        <div class="nav-left">
+          <div class="nav-logo">VK</div>
+          <div class="nav-title">
+            <span>vinay</span>.offsec
+          </div>
+        </div>
+        <div class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="index.html#about">About</a>
+          <a href="index.html#skills">Skills</a>
+          <a href="index.html#projects">Projects</a>
+          <a href="index.html#blog">Blog</a>
+          <a href="index.html#certs">Certs</a>
+          <a href="index.html#contact" data-status="contact">Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section id="blog-posts">
+        <article id="post1" class="blog-post">
+          <h1 class="blog-post-title">My First CTF Write-up</h1>
+          <p class="blog-post-meta">Posted on <time datetime="2023-10-26">October 26, 2023</time></p>
+          <div class="blog-post-content">
+            <p>
+              I recently participated in my first Capture The Flag (CTF) competition, and it was an exhilarating experience. I decided to document my journey, the challenges I faced, and the things I learned along the way.
+            </p>
+            <h2>The Beginning</h2>
+            <p>
+              The CTF was a jeopardy-style competition with a variety of categories, including web exploitation, reverse engineering, cryptography, and forensics. As a beginner, I decided to focus on the web exploitation challenges, as that's where I have the most (albeit limited) experience.
+            </p>
+            <h2>The Challenges</h2>
+            <p>
+              I managed to solve a few of the introductory web challenges. One of them involved a simple SQL injection vulnerability, while another required me to exploit a file inclusion vulnerability. These challenges were a great way to apply the theoretical knowledge I've gained from online courses and labs.
+            </p>
+            <h2>What I Learned</h2>
+            <p>
+              The most important lesson I learned is that CTFs are not just about technical skills. They're also about time management, problem-solving, and perseverance. I also learned the importance of taking good notes and having a systematic approach to tackling challenges.
+            </p>
+            <h2>Conclusion</h2>
+            <p>
+              Overall, my first CTF was a fantastic learning experience. I'm already looking forward to the next one!
+            </p>
+          </div>
+        </article>
+
+        <article id="post2" class="blog-post">
+          <h1 class="blog-post-title">Understanding Nmap</h1>
+          <p class="blog-post-meta">Posted on <time datetime="2023-11-15">November 15, 2023</time></p>
+          <div class="blog-post-content">
+            <p>
+              Nmap (Network Mapper) is one of the most fundamental tools in the arsenal of any security professional. It's a free and open-source utility for network discovery and security auditing. In this post, we'll take a look at some of the basic and advanced features of Nmap.
+            </p>
+            <h2>Basic Scans</h2>
+            <p>
+              The most basic Nmap scan is a simple TCP connect scan, which can be performed with the `-sT` flag. This scan is reliable, but it's also very noisy and easily detectable.
+            </p>
+            <pre><code>nmap -sT 192.168.1.1</code></pre>
+            <h2>Stealth Scans</h2>
+            <p>
+              For more stealthy scanning, you can use a SYN scan (`-sS`), which is often referred to as a "half-open" scan. This type of scan is less likely to be logged by firewalls and intrusion detection systems.
+            </p>
+            <pre><code>nmap -sS 192.168.1.1</code></pre>
+            <h2>Version Detection</h2>
+            <p>
+              One of Nmap's most powerful features is its ability to determine the version of the services running on open ports. This can be done with the `-sV` flag.
+            </p>
+            <pre><code>nmap -sV 192.168.1.1</code></pre>
+            <h2>Conclusion</h2>
+            <p>
+              Nmap is a versatile and powerful tool with a vast array of options and features. This post has only scratched the surface of what Nmap is capable of. I encourage you to explore the official documentation and experiment with different scan types and options.
+            </p>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <div>© <span id="year">2023</span> G Venkata Vinay Kumar. All rights reserved.</div>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" integrity="sha512-dLxUelApnYxpLt6K2iomGngnHO83iUasbVRjS5x1ebIV54qrNwG+94vY3fN5/if3edQ/LwP9QZYiN3u/x3gCBA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="particles.js" defer></script>
+  <script src="script.js" defer></script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
